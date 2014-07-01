@@ -1,0 +1,36 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<title></title>
+	<script type="text/javascript">
+
+		function init(){
+			var bHaveFileAPI = (window.File && window.FileReader);
+
+			if (!bHaveFileAPI){
+				alert("This browser doesn't support the File API");
+				return;
+			}
+
+			document.getElementById("fileElem").addEventListener("change", onFileChanged);
+		}
+
+		function onFileChanged(evt){
+			alert("You selected a file: " + evt.target.files[0].name);
+		}
+		
+		window.addEventListener("load", init);
+	</script>
+</head>
+
+<body>
+<h1>Using the file input type</h1>
+
+<form action="">
+	<label>Select a file:</label>
+	<input type="file" name="files" id="fileElem" />
+</form>
+</body>
+</html>
